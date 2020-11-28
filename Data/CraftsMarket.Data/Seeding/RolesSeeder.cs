@@ -17,6 +17,15 @@
             var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
             await SeedRoleAsync(roleManager, GlobalConstants.AdministratorRoleName);
+            await SeedRoleAsync(roleManager, GlobalConstants.HandicapRoleName);
+            await SeedRoleAsync(roleManager, GlobalConstants.CustomerRoleName);
+
+            var handicapRole = dbContext.Roles.FirstOrDefault(x => x.Name == GlobalConstants.HandicapRoleName);
+            if (handicapRole != null)
+            {
+                handicapRole.Description = GlobalConstants.HandicapRoleDescription;
+                await dbContext.SaveChangesAsync();
+            }
         }
 
         private static async Task SeedRoleAsync(RoleManager<ApplicationRole> roleManager, string roleName)

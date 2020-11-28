@@ -16,6 +16,7 @@ namespace CraftsMarket.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Comments = new HashSet<Comment>();
         }
 
         // Audit info
@@ -27,6 +28,10 @@ namespace CraftsMarket.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual Town Town { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
 
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
