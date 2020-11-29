@@ -7,8 +7,13 @@
 
     public class Town : BaseDeletableModel<int>
     {
+        public Town()
+        {
+            this.Users = new HashSet<ApplicationUser>();
+        }
+
         public string Name { get; set; }
 
-        ////public ICollection<IdentityUser> Users { get; set; }
+        public virtual ICollection<ApplicationUser> Users { get; set; }
     }
 }
