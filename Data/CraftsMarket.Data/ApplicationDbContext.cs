@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace CraftsMarket.Data
+﻿namespace CraftsMarket.Data
 {
     using System;
     using System.Linq;

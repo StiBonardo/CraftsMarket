@@ -1,14 +1,12 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace CraftsMarket.Data.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     using CraftsMarket.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity

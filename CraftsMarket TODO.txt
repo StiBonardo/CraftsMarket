@@ -1,2 +1,3 @@
 Implement Messages between users
 Implement ratings for Users and Products
+Background photo

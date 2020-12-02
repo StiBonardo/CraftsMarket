@@ -1,16 +1,31 @@
-﻿namespace CraftsMarket.Web.Controllers
+﻿using CraftsMarket.Services.Data;
+
+namespace CraftsMarket.Web.Controllers
 {
     using System.Diagnostics;
+    using System.Linq;
 
+    using CraftsMarket.Data.Common.Repositories;
+    using CraftsMarket.Data.Models;
+    using CraftsMarket.Data.Repositories;
     using CraftsMarket.Web.ViewModels;
-
+    using CraftsMarket.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
+        private readonly IGetCountsService getCountsService;
+
+        public HomeController(IGetCountsService getCountsService)
+        {
+            this.getCountsService = getCountsService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = this.getCountsService.GetCounts();
+
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

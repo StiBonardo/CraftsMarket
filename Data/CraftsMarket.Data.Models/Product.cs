@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace CraftsMarket.Data.Models
+﻿namespace CraftsMarket.Data.Models
 {
     using System.Collections.Generic;
     using System.Net.Mime;
 
     using CraftsMarket.Data.Common.Models;
+    using Microsoft.AspNetCore.Identity;
 
     public class Product : BaseDeletableModel<int>
     {
