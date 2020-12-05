@@ -24,40 +24,31 @@
                 <div class="collapse navbar-collapse text-center" id="navbarNavDropdown-1">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Products</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#a" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                Categories
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Design</a>
-                                <a class="dropdown-item" href="#">Development</a>
-                                <a class="dropdown-item" href="#">Marketing</a>
-                            </div>
-                        </li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    
+
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @this.RenderBody()
         </main>
     </div>
-    
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

@@ -1,4 +1,7 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
+
+using System.ComponentModel.DataAnnotations;
+
 namespace CraftsMarket.Data.Models
 {
     using System;
@@ -19,6 +22,10 @@ namespace CraftsMarket.Data.Models
         {
             this.Id = Guid.NewGuid().ToString();
         }
+
+        [Required]
+        [MaxLength(50)]
+        public override string Name { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

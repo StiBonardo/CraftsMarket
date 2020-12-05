@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace CraftsMarket.Data.Models
 {
     using System;
@@ -14,12 +16,16 @@ namespace CraftsMarket.Data.Models
             this.Id = Guid.NewGuid().ToString();
         }
 
+        [Required]
+        [MaxLength(2000)]
         public string Content { get; set; }
 
+        [Required]
         public string SenderId { get; set; }
 
         public virtual ApplicationUser Sender { get; set; }
 
+        [Required]
         public string ReceiverId { get; set; }
 
         public virtual ApplicationUser Receiver { get; set; }

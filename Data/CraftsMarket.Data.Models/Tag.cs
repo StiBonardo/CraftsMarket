@@ -1,4 +1,6 @@
-﻿namespace CraftsMarket.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CraftsMarket.Data.Models
 {
     using System.Collections.Generic;
 
@@ -11,6 +13,8 @@
             this.ProductTags = new HashSet<ProductTag>();
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         public int ProductId { get; set; }

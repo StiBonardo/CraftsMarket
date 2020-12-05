@@ -1,4 +1,6 @@
-﻿namespace CraftsMarket.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CraftsMarket.Data.Models
 {
     using System.Collections.Generic;
     using System.Net.Mime;
@@ -15,6 +17,8 @@
             this.ProductTags = new HashSet<ProductTag>();
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         public decimal Price { get; set; }
@@ -27,6 +31,7 @@
 
         public virtual Category Category { get; set; }
 
+        [Required]
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }

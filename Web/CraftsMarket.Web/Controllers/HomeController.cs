@@ -28,6 +28,11 @@ namespace CraftsMarket.Web.Controllers
             return this.View(viewModel);
         }
 
+        public IActionResult About()
+        {
+            return this.View();
+        }
+
         public IActionResult Privacy()
         {
             return this.View();
