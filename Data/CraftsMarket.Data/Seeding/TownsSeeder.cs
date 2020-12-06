@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace CraftsMarket.Data.Seeding
+﻿namespace CraftsMarket.Data.Seeding
 {
     using System;
     using System.Collections.Generic;
@@ -17,7 +15,7 @@ namespace CraftsMarket.Data.Seeding
         /// <summary>
         /// Retrieving Bulgarian Towns from Wikipedia.
         /// </summary>
-        private static Url url = new Url(
+        private static readonly Url Url = new Url(
             "https://bg.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B4%D0%BE%D0%B2%D0%B5_%D0%B2_%D0%91%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D0%B8%D1%8F");
 
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
@@ -26,7 +24,7 @@ namespace CraftsMarket.Data.Seeding
 
             var context = BrowsingContext.New(config);
 
-            var document = await context.OpenAsync(url);
+            var document = await context.OpenAsync(Url);
 
             var elements = document.QuerySelectorAll("td").Where(x => x.InnerHtml.Length > 200).ToList();
             var htmlElements = elements

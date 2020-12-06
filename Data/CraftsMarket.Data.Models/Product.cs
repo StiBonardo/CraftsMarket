@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Net.Mime;
 
     using CraftsMarket.Data.Common.Models;
-    using Microsoft.AspNetCore.Identity;
 
     public class Product : BaseDeletableModel<int>
     {

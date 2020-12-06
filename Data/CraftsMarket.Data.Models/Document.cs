@@ -4,7 +4,6 @@
     using System.ComponentModel.DataAnnotations;
 
     using CraftsMarket.Data.Common.Models;
-    using Microsoft.AspNetCore.Identity;
 
     public class Document : BaseDeletableModel<string>
     {

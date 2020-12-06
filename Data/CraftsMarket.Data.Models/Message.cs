@@ -5,7 +5,6 @@ namespace CraftsMarket.Data.Models
     using System.ComponentModel.DataAnnotations;
 
     using CraftsMarket.Data.Common.Models;
-    using Microsoft.AspNetCore.Identity;
 
     public class Message : BaseDeletableModel<string>
     {

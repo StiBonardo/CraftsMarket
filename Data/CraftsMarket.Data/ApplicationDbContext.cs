@@ -24,6 +24,10 @@
         {
         }
 
+        public DbSet<ApplicationUser> AspNetUsers { get; set; }
+
+        public DbSet<ApplicationRole> AspNetRoles { get; set; }
+
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Comment> Comments { get; set; }

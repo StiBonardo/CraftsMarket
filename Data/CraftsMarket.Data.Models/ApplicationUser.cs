@@ -4,10 +4,10 @@ namespace CraftsMarket.Data.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     using CraftsMarket.Data.Common.Models;
+
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
@@ -35,7 +35,7 @@ namespace CraftsMarket.Data.Models
 
         public DateTime? DeletedOn { get; set; }
 
-        public int TownId { get; set; }
+        public int? TownId { get; set; }
 
         public virtual Town Town { get; set; }
 

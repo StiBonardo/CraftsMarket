@@ -1,14 +1,10 @@
 ﻿namespace CraftsMarket.Web.Controllers
 {
     using System.Diagnostics;
-    using System.Linq;
 
-    using CraftsMarket.Data.Common.Repositories;
-    using CraftsMarket.Data.Models;
-    using CraftsMarket.Data.Repositories;
     using CraftsMarket.Services.Data;
     using CraftsMarket.Web.ViewModels;
-    using CraftsMarket.Web.ViewModels.Home;
+
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController

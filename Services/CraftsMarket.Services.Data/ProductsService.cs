@@ -2,12 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     using CraftsMarket.Data.Common.Repositories;
     using CraftsMarket.Data.Models;
-    using CraftsMarket.Services.Mapping;
     using CraftsMarket.Web.ViewModels.Products;
 
     public class ProductsService : IProductsService
