@@ -1,8 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace CraftsMarket.Data.Models
+﻿namespace CraftsMarket.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Net.Mime;
 
     using CraftsMarket.Data.Common.Models;

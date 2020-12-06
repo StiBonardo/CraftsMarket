@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using CraftsMarket.Web.ViewModels.Home;
-
-namespace CraftsMarket.Services.Data
+﻿namespace CraftsMarket.Services.Data
 {
+    using System.Linq;
+
     using CraftsMarket.Data.Common.Repositories;
     using CraftsMarket.Data.Models;
+    using CraftsMarket.Web.ViewModels.Home;
 
     public class GetCountsService : IGetCountsService
     {

@@ -1,6 +1,4 @@
-﻿using CraftsMarket.Services.Data;
-
-namespace CraftsMarket.Web
+﻿namespace CraftsMarket.Web
 {
     using System.Reflection;
 
@@ -10,10 +8,10 @@ namespace CraftsMarket.Web
     using CraftsMarket.Data.Models;
     using CraftsMarket.Data.Repositories;
     using CraftsMarket.Data.Seeding;
+    using CraftsMarket.Services.Data;
     using CraftsMarket.Services.Mapping;
     using CraftsMarket.Services.Messaging;
     using CraftsMarket.Web.ViewModels;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;

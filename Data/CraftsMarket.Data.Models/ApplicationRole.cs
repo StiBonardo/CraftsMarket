@@ -1,13 +1,11 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 
-using System.ComponentModel.DataAnnotations;
-
 namespace CraftsMarket.Data.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     using CraftsMarket.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
@@ -22,11 +20,7 @@ namespace CraftsMarket.Data.Models
         {
             this.Id = Guid.NewGuid().ToString();
         }
-
-        [Required]
-        [MaxLength(50)]
-        public override string Name { get; set; }
-
+        
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }

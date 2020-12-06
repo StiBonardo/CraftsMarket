@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace CraftsMarket.Data.Models
+﻿namespace CraftsMarket.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     using CraftsMarket.Data.Common.Models;
 
     public class Comment : BaseDeletableModel<int>

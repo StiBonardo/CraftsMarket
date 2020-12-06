@@ -1,11 +1,10 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 
-using System.ComponentModel.DataAnnotations;
-
 namespace CraftsMarket.Data.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     using CraftsMarket.Data.Common.Models;
@@ -25,14 +24,6 @@ namespace CraftsMarket.Data.Models
             this.ReceivedMessages = new HashSet<Message>();
             this.Documents = new HashSet<Document>();
         }
-
-        [Required]
-        [MaxLength(80)]
-        public override string UserName { get; set; }
-
-        [Required]
-        [MaxLength(160)]
-        public override string Email { get; set; }
 
         // Audit info
         public DateTime CreatedOn { get; set; }

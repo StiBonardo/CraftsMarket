@@ -38,6 +38,10 @@
 
         public DbSet<ProductTag> ProductTags { get; set; }
 
+        public DbSet<Tag> Tags { get; set; }
+
+        public DbSet<Town> Towns { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
