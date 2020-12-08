@@ -20,47 +20,50 @@
 
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            var config = Configuration.Default.WithDefaultLoader();
-
-            var context = BrowsingContext.New(config);
-
-            var document = await context.OpenAsync(Url);
-
-            var elements = document.QuerySelectorAll("td").Where(x => x.InnerHtml.Length > 200).ToList();
-            var htmlElements = elements
-                .Select(x => x.InnerHtml);
-
-            var towns = new HashSet<Town>();
-            var dbTownNames = dbContext
-                .Towns
-                .Select(x => x.Name)
-                .ToArray();
-
-            foreach (var html in htmlElements)
+            if (!dbContext.Towns.Any())
             {
-                var afterTitleElement = html.Split("title=\"")[1];
-                var townName = afterTitleElement.Split("\">")[0];
+                var config = Configuration.Default.WithDefaultLoader();
 
-                if (townName.Trim().EndsWith("(град)"))
+                var context = BrowsingContext.New(config);
+
+                var document = await context.OpenAsync(Url);
+
+                var elements = document.QuerySelectorAll("td").Where(x => x.InnerHtml.Length > 200).ToList();
+                var htmlElements = elements
+                    .Select(x => x.InnerHtml);
+
+                var towns = new HashSet<Town>();
+                var dbTownNames = dbContext
+                    .Towns
+                    .Select(x => x.Name)
+                    .ToArray();
+
+                foreach (var html in htmlElements)
                 {
-                    townName = townName.Replace("(град)", string.Empty, true, CultureInfo.InvariantCulture);
+                    var afterTitleElement = html.Split("title=\"")[1];
+                    var townName = afterTitleElement.Split("\">")[0];
+
+                    if (townName.Trim().EndsWith("(град)"))
+                    {
+                        townName = townName.Replace("(град)", string.Empty, true, CultureInfo.InvariantCulture);
+                    }
+
+                    if (townName == "Област Велико Търново")
+                    {
+                        continue;
+                    }
+
+                    if (dbTownNames.Any(x => x == townName))
+                    {
+                        continue;
+                    }
+
+                    towns.Add(new Town {Name = townName});
                 }
 
-                if (townName == "Област Велико Търново")
-                {
-                    continue;
-                }
-
-                if (dbTownNames.Any(x => x == townName))
-                {
-                    continue;
-                }
-
-                towns.Add(new Town { Name = townName });
+                await dbContext.Towns.AddRangeAsync(towns.OrderBy(x => x.Name));
+                await dbContext.SaveChangesAsync();
             }
-
-            await dbContext.Towns.AddRangeAsync(towns.OrderBy(x => x.Name));
-            await dbContext.SaveChangesAsync();
         }
     }
 }

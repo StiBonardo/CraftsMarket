@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CraftsMarket.Common\CraftsMarket.Common.csproj" />
     <ProjectReference Include="..\..\Data\CraftsMarket.Data.Common\CraftsMarket.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\CraftsMarket.Data.Models\CraftsMarket.Data.Models.csproj" />
     <ProjectReference Include="..\..\Web\CraftsMarket.Web.ViewModels\CraftsMarket.Web.ViewModels.csproj" />

@@ -1,5 +1,7 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 
+using System.Collections.Generic;
+
 namespace CraftsMarket.Data.Models
 {
     using System;
@@ -20,7 +22,7 @@ namespace CraftsMarket.Data.Models
         {
             this.Id = Guid.NewGuid().ToString();
         }
-        
+
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }

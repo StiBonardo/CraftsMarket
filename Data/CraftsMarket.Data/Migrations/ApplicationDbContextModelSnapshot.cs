@@ -120,7 +120,7 @@ namespace CraftsMarket.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TownId")
+                    b.Property<int?>("TownId")
                         .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -581,9 +581,7 @@ namespace CraftsMarket.Data.Migrations
                 {
                     b.HasOne("CraftsMarket.Data.Models.Town", "Town")
                         .WithMany("Users")
-                        .HasForeignKey("TownId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("TownId");
                 });
 
             modelBuilder.Entity("CraftsMarket.Data.Models.Comment", b =>

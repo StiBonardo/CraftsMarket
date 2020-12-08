@@ -67,12 +67,6 @@
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-
-            [Required]
-            [StringLength(80, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
-            [Display(Name = "Town")]
-            public string Town { get; set; }
-
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -87,7 +81,7 @@
             ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Username, Email = Input.Email };
                 var result = await userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
