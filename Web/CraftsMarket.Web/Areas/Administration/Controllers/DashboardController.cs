@@ -1,6 +1,6 @@
 ﻿namespace CraftsMarket.Web.Areas.Administration.Controllers
 {
-    using CraftsMarket.Web.ViewModels.Administration.Dashboard;
+    using CraftsMarket.Web.ViewModels.Products;
 
     using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +9,10 @@
         public DashboardController()
         {
         }
-       ////public IActionResult Index()
-       ////{
-       ////}
 
+        public IActionResult Index()
+        {
+            return this.View();
+        }
     }
 }

@@ -7,14 +7,22 @@
 <div class="text-center">
     <h1 class="display-3">Welcome to @GlobalConstants.SystemName!</h1>
     <div class="display-4">
-        <p>Here you can find</p>
-        <p>
-            <span class="display-3 text-danger">@Model.ProductsCount</span>
-            <a class="nav-item" style="border: none; text-decoration:none !important;" asp-controller="">Products</a> in
-        </p>
-        <p>
-            <span class="display-3 text-danger">@Model.CategoriesCount</span>
-            <a class="nav-item" style="border: none; text-decoration:none !important;" asp-controller="">Categories</a>
-        </p>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <p>Here you can find</p>
+            <p>
+                <span class="display-3 text-danger">@Model.ProductsCount</span>
+                <a class="nav-item" style="border: none; text-decoration: none !important;" asp-controller="Products" asp-action="All">Products</a> in
+            </p>
+            <p>
+                <span class="display-3 text-danger">@Model.CategoriesCount</span>
+                <a class="nav-item" style="border: none; text-decoration: none !important;" asp-controller="Categories" asp-action="All">Categories</a>
+            </p>
+        }
+        else
+        {
+            <h1>You have <span class="text-danger">COUNT</span> active products:</h1>
+            <h1>TODO: Add current user products here!!!</h1>
+        }
     </div>
 </div>

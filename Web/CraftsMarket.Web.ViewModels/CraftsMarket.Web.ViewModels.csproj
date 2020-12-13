@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\CraftsMarket.Services.Mapping\CraftsMarket.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Administration\Dashboard\" />
+  </ItemGroup>
+
 </Project>

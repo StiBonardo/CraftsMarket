@@ -6,6 +6,10 @@
 
     public interface IProductsService
     {
+        ProductViewModel ById(int id);
+
         IEnumerable<ProductViewModel> All();
+
+        IEnumerable<ProductViewModel> AllForUser(string userId);
     }
 }

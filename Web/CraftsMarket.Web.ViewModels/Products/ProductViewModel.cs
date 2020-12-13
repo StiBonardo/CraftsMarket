@@ -1,4 +1,6 @@
-﻿namespace CraftsMarket.Web.ViewModels.Products
+﻿using System.Collections.Generic;
+
+namespace CraftsMarket.Web.ViewModels.Products
 {
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
@@ -8,6 +10,8 @@
 
     public class ProductViewModel : IMapTo<Product>, IMapFrom<Product>
     {
+        public int Id { get; set; }
+
         [Required]
         [MinLength(3)]
         [MaxLength(50)]
@@ -19,7 +23,6 @@
 
         public string Description { get; set; }
 
-        [DisplayName(nameof(Category))]
-        public int CategoryId { get; set; }
+        public ICollection<string> ImageUrls { get; set; }
     }
 }

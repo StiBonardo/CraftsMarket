@@ -18,6 +18,8 @@
         [MaxLength(50)]
         public string Name { get; set; }
 
+        public bool IsApproved { get; set; }
+
         public decimal Price { get; set; }
 
         public int InStock { get; set; }

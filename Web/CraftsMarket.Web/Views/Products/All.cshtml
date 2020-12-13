@@ -1,1 +1,27 @@
-﻿
+﻿@model CraftsMarket.Web.ViewModels.Products.ListOfProductsViewModel
+@{
+    this.ViewData["Title"] = "Products";
+}
+
+<div class="text-center">
+    <h1 class="display-3">@this.ViewData["Title"]</h1>
+    <div class="display-4">
+        <h1>You have <span class="text-danger">@Model.MyProducts.Count()</span> active products:</h1>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @foreach (var product in @Model.MyProducts)
+            {
+                <partial name="_ProductPartial" , model="@Model.MyProducts" />
+            }
+        }
+        <br/>
+        <a type="button" class="btn btn-primary" asp-controller="Products" asp-action="Add">Add new product</a>
+        <br/>
+        <h1>Most recent products:</h1>
+
+        @foreach (var product in @Model.MyProducts)
+        {
+            <partial name="_ProductPartial" , model="@Model.AllProducts" />
+        }
+    </div>
+</div>

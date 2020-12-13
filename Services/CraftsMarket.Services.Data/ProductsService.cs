@@ -1,4 +1,8 @@
-﻿namespace CraftsMarket.Services.Data
+﻿using System.Linq;
+
+using CraftsMarket.Services.Mapping;
+
+namespace CraftsMarket.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -16,9 +20,28 @@
             this.productsRepository = productsRepository;
         }
 
+        public ProductViewModel ById(int id)
+        {
+            return this.productsRepository.AllAsNoTracking().To<ProductViewModel>().FirstOrDefault(x => x.Id == id);
+        }
+
         public IEnumerable<ProductViewModel> All()
         {
-            throw new NotImplementedException();
+            return this.productsRepository
+                .AllAsNoTracking()
+                .OrderByDescending(x => x.ModifiedOn)
+                .ThenByDescending(x => x.CreatedOn)
+                .To<ProductViewModel>()
+                .ToList();
+        }
+
+        public IEnumerable<ProductViewModel> AllForUser(string userId)
+        {
+            return this.productsRepository
+                .AllAsNoTracking()
+                .Where(x => x.User.Id == userId)
+                .To<ProductViewModel>()
+                .ToList();
         }
     }
 }
