@@ -21,8 +21,13 @@
         }
         else
         {
-            <h1>You have <span class="text-danger">COUNT</span> active products:</h1>
-            <h1>TODO: Add current user products here!!!</h1>
+            <h1>Hello, @User.Identity.Name! You can see all Your products <a asp-controller="Products" asp-action="All">here!</a></h1>
+            <br />
+            <h3>Recently added products:</h3>
+            @foreach (var product in @Model.TopRecentProducts)
+            {
+                @Html.Partial("~/Views/Products/_ProductPartial.cshtml")
+            }
         }
     </div>
 </div>

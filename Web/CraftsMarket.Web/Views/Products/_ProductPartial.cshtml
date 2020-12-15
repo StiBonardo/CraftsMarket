@@ -4,7 +4,7 @@
         <img class="card-img" src="@Model.ImageUrls.FirstOrDefault()" alt="@Model.Name">
     </div>
     <div class="card-body">
-        <span class="badge badge-success">TODO: Add category here!</span>
+        <span class="badge badge-success">@Model.CategoryName</span>
         <h4 class="card-title mt-2">Price: @Model.Price lev.</h4>
         <p class="card-text">@Model.Description.Substring(0, 200) </p>
     </div>

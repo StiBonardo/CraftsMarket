@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CraftsMarket.Data.Models;
-using CraftsMarket.Web.ViewModels.Products;
-using Microsoft.AspNetCore.Identity;
-
-namespace CraftsMarket.Web.Controllers
+﻿namespace CraftsMarket.Web.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using CraftsMarket.Data.Models;
     using CraftsMarket.Services.Data;
+    using CraftsMarket.Web.ViewModels.Products;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     public class ProductsController : BaseController
@@ -14,7 +14,9 @@ namespace CraftsMarket.Web.Controllers
         private readonly IProductsService productsService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public ProductsController(IProductsService productsService, UserManager<ApplicationUser> userManager)
+        public ProductsController(
+            IProductsService productsService,
+            UserManager<ApplicationUser> userManager)
         {
             this.productsService = productsService;
             this.userManager = userManager;
@@ -26,6 +28,7 @@ namespace CraftsMarket.Web.Controllers
             return this.View(viewModel);
         }
 
+        [Route("/Products")]
         public IActionResult All()
         {
             var productsViewModel = new ListOfProductsViewModel();
@@ -44,7 +47,7 @@ namespace CraftsMarket.Web.Controllers
         {
             if (!this.User.Identity.IsAuthenticated)
             {
-                this.Redirect("/Identity/Account/Login");
+                return this.Redirect("/Identity/Account/Login");
             }
 
             return this.View();

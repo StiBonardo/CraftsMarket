@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace CraftsMarket.Web.ViewModels.Products
+﻿namespace CraftsMarket.Web.ViewModels.Products
 {
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
@@ -22,6 +21,8 @@ namespace CraftsMarket.Web.ViewModels.Products
         public int InStock { get; set; }
 
         public string Description { get; set; }
+
+        public string CategoryName { get; set; }
 
         public ICollection<string> ImageUrls { get; set; }
     }

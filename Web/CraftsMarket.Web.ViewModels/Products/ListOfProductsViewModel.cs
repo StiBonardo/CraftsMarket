@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CraftsMarket.Web.ViewModels.Products
+﻿namespace CraftsMarket.Web.ViewModels.Products
 {
+    using System.Collections.Generic;
+
     public class ListOfProductsViewModel
     {
         public ListOfProductsViewModel()

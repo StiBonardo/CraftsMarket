@@ -1,28 +1,34 @@
 ﻿namespace CraftsMarket.Web.Controllers
 {
     using System.Diagnostics;
+    using System.Linq;
 
     using CraftsMarket.Services.Data;
     using CraftsMarket.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
         private readonly IGetCountsService getCountsService;
+        private readonly IProductsService productsService;
 
-        public HomeController(IGetCountsService getCountsService)
+        public HomeController(
+            IGetCountsService getCountsService,
+            IProductsService productsService)
         {
             this.getCountsService = getCountsService;
+            this.productsService = productsService;
         }
 
         public IActionResult Index()
         {
             var viewModel = this.getCountsService.GetCounts();
+            viewModel.TopRecentProducts = this.productsService.GetRecentProducts().ToList();
 
             return this.View(viewModel);
         }
 
+        [Route("/About")]
         public IActionResult About()
         {
             return this.View();
