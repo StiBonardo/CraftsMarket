@@ -9,6 +9,7 @@
     using CraftsMarket.Common;
     using CraftsMarket.Data.Common.Repositories;
     using CraftsMarket.Data.Models;
+
     using Microsoft.AspNetCore.Identity;
 
     public class UsersService : IUsersService

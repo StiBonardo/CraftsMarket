@@ -5,6 +5,7 @@
 
     using CraftsMarket.Services.Data;
     using CraftsMarket.Web.ViewModels;
+
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController

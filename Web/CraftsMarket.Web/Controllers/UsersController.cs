@@ -2,6 +2,7 @@
 {
     using CraftsMarket.Common;
     using CraftsMarket.Services.Data;
+
     using Microsoft.AspNetCore.Authorization;
 
     public class UsersController : BaseController

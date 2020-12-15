@@ -58,7 +58,7 @@
                         continue;
                     }
 
-                    towns.Add(new Town {Name = townName});
+                    towns.Add(new Town { Name = townName });
                 }
 
                 await dbContext.Towns.AddRangeAsync(towns.OrderBy(x => x.Name));

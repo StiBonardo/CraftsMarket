@@ -6,6 +6,8 @@
     using CraftsMarket.Data.Models;
     using CraftsMarket.Services.Data;
     using CraftsMarket.Web.ViewModels.Products;
+
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
@@ -24,7 +26,7 @@
 
         public IActionResult Index(int productId)
         {
-            var viewModel = this.productsService.ById(productId);
+            var viewModel = this.productsService.GetById(productId);
             return this.View(viewModel);
         }
 
@@ -34,8 +36,7 @@
             var productsViewModel = new ListOfProductsViewModel();
             if (this.User.Identity.IsAuthenticated)
             {
-                var userId = this.userManager.GetUserId(this.User);
-                productsViewModel.MyProducts = this.productsService.AllForUser(userId).ToList();
+                productsViewModel.MyProducts = this.productsService.AllForUser(this.User.Identity.Name).ToList();
             }
 
             productsViewModel.AllProducts = this.productsService.All().ToList();
@@ -53,5 +54,14 @@
             return this.View();
         }
 
+        public IActionResult AllFromCategory(string category)
+        {
+            var viewModel = new AllFromCategoryViewModel
+            {
+                Products = this.productsService.AllFromCategory(category).ToList(),
+            };
+
+            return this.View(viewModel);
+        }
     }
 }

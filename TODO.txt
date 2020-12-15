@@ -1,4 +1,7 @@
-Implement Products
+Implement choosing category from db /dropdown/
+Implement loading of pictures
+Implement Add new Product
+
 Implement Categories
 Check bootstrap-select
 Implement Messages between users

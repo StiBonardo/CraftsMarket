@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
 
     using CommandLine;
+
     using CraftsMarket.Data;
     using CraftsMarket.Data.Common;
     using CraftsMarket.Data.Common.Repositories;
@@ -13,6 +14,7 @@
     using CraftsMarket.Data.Repositories;
     using CraftsMarket.Data.Seeding;
     using CraftsMarket.Services.Messaging;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;

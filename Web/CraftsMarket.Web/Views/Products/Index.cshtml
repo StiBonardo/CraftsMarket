@@ -4,6 +4,7 @@
 }
 <br/>
 <h1 class="text-warning">@Model.Name</h1>
+<a class="nav-link" asp-controller="Products" asp-action="AllFromCategory" asp-route-id="@Model.CategoryName">@Model.CategoryName</a>
 <br/>
 <p>@Model.Description</p>
 <p>@Model.Price</p>

@@ -6,12 +6,14 @@
 
     public interface IProductsService
     {
-        ProductViewModel ById(int id);
+        ProductViewModel GetById(int id);
 
         IEnumerable<ProductViewModel> All();
 
         IEnumerable<ProductViewModel> AllForUser(string userId);
 
         IEnumerable<ProductViewModel> GetRecentProducts(int count = 12);
+
+        IEnumerable<ProductViewModel> AllFromCategory(string categoryName);
     }
 }

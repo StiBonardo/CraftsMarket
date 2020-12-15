@@ -1,6 +1,8 @@
 ﻿using System;
+
 using CraftsMarket.Data;
 using CraftsMarket.Data.Models;
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -15,7 +17,8 @@ namespace CraftsMarket.Web.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
             });
         }
     }

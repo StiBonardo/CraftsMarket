@@ -1,6 +1,7 @@
 ﻿namespace CraftsMarket.Data.Configurations
 {
     using CraftsMarket.Data.Models;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

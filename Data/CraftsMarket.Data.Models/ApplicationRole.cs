@@ -6,6 +6,7 @@ namespace CraftsMarket.Data.Models
     using System.Collections.Generic;
 
     using CraftsMarket.Data.Common.Models;
+
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity

@@ -22,7 +22,7 @@
             this.categoriesRepository = categoriesRepository;
         }
 
-        public ProductViewModel ById(int id)
+        public ProductViewModel GetById(int id)
         {
             return this.productsRepository.AllAsNoTracking().To<ProductViewModel>().FirstOrDefault(x => x.Id == id);
         }
@@ -81,6 +81,17 @@
             }
 
             return recentProducts;
+        }
+
+        public IEnumerable<ProductViewModel> AllFromCategory(string categoryName)
+        {
+            return this.productsRepository
+                .AllAsNoTracking()
+                .Where(x => x.Category.Name == categoryName)
+                .OrderByDescending(x => x.CreatedOn)
+                .ThenByDescending(x => x.ModifiedOn)
+                .To<ProductViewModel>()
+                .ToList();
         }
     }
 }

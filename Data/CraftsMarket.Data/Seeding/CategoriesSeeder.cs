@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-
-using CraftsMarket.Data.Models;
-
-namespace CraftsMarket.Data.Seeding
+﻿namespace CraftsMarket.Data.Seeding
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using CraftsMarket.Data.Models;
 
     public class CategoriesSeeder : ISeeder
     {
