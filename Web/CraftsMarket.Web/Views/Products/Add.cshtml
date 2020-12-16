@@ -1,35 +1,45 @@
-﻿@{
+﻿@model CraftsMarket.Web.ViewModels.Products.CreateProductInputModel
+@{
     this.ViewData["Title"] = "Add product";
 }
 <br />
-<h1>@this.ViewData["Title"]</h1>
 
-<form class="form-group">
+<form method="post" class="col-md-8 offset-md-2">
+    <h1>@this.ViewData["Title"]</h1>
     <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter product name">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" placeholder="Enter product name">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label for="description1">Description</label>
-        <textarea class="form-control" id="description1" rows="3" placeholder="Write product description here..."></textarea>
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Write product description here..."></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label>Price</label>
-        <input type="number" class="form-control" id="price">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" placeholder="Enter product price">
+        <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-
     <div class="form-group">
-        <label>Quantity</label>
-        <input type="number" class="form-control" id="quantity">
+        <label asp-for="InStock"></label>
+        <input asp-for="InStock" class="form-control" placeholder="Enter available quantity">
+        <span asp-validation-for="InStock" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Categories"></label>
+        <div>
+            @Html.DropDownListFor(x => Model.CategoryName, new SelectList(Model.Categories, "Value", "Text"), htmlAttributes: new { @class = "form-control"})
+        </div>
     </div>
     <p class="text-danger align-content-lg-center display-1">TODO: Upload pictures</p>
-    
-    <br/>
-    <br/>
+
+    <br />
+    <br />
     @*<div class="form-group">
-        <button class="btn btn-info">Please add some pictures</button>
-    </div>*@
+            <button class="btn btn-info">Please add some pictures</button>
+        </div>*@
     <button type="submit" class="btn btn-success">Add product</button>
 </form>

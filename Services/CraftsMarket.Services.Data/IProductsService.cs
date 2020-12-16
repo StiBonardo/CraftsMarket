@@ -1,4 +1,6 @@
-﻿namespace CraftsMarket.Services.Data
+﻿using System.Threading.Tasks;
+
+namespace CraftsMarket.Services.Data
 {
     using System.Collections.Generic;
 
@@ -15,5 +17,7 @@
         IEnumerable<ProductViewModel> GetRecentProducts(int count = 12);
 
         IEnumerable<ProductViewModel> AllFromCategory(string categoryName);
+
+        Task CreateAsync(CreateProductInputModel model);
     }
 }

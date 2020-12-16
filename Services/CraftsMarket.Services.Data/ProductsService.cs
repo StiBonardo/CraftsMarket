@@ -1,4 +1,6 @@
-﻿namespace CraftsMarket.Services.Data
+﻿using System.Threading.Tasks;
+
+namespace CraftsMarket.Services.Data
 {
     using System;
     using System.Collections.Generic;
@@ -92,6 +94,22 @@
                 .ThenByDescending(x => x.ModifiedOn)
                 .To<ProductViewModel>()
                 .ToList();
+        }
+
+        public async Task CreateAsync(CreateProductInputModel model)
+        {
+            var product = new Product
+            {
+                CategoryId = this.categoriesRepository.All().First(x => x.Name == model.CategoryName).Id,
+                InStock = model.InStock,
+                Name = model.Name,
+                Price = model.Price,
+                UserId = model.UserId,
+                Description = model.Description,
+            };
+
+            await this.productsRepository.AddAsync(product);
+            await this.productsRepository.SaveChangesAsync();
         }
     }
 }

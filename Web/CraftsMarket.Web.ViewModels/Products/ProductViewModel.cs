@@ -16,10 +16,16 @@
         [MaxLength(50)]
         public string Name { get; set; }
 
+        [Required]
+        [Range(0.01, 100000)]
         public decimal Price { get; set; }
 
+        [Range(0.01, 1000)]
+        [Display(Name = "Quantity")]
         public int InStock { get; set; }
 
+        [Required]
+        [MinLength(20)]
         public string Description { get; set; }
 
         public string CategoryName { get; set; }

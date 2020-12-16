@@ -10,7 +10,7 @@
     public class CategoriesSeeder : ISeeder
     {
         private const string CategoriesNamesString =
-            "Art, Knitting, Foods and drinks, Services, Trinkets, Minerals, Cosmetics, Machinery, Jewelry";
+            "Art, Knitting, Foods and drinks, Services, Trinkets, Minerals, Cosmetics, Machinery, Jewelry, Other";
 
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {

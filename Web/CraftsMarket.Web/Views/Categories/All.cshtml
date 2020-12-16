@@ -1,0 +1,13 @@
+﻿@model List<string>
+@{
+    this.ViewData["Title"] = "Categories";
+}
+
+<h1>Categories:</h1>
+
+@foreach (var category in @Model)
+{
+    <p>
+        <a class="nav-item" asp-controller="Products" asp-action="AllFromCategory" asp-route-id="@category">@category</a>
+    </p>
+}
