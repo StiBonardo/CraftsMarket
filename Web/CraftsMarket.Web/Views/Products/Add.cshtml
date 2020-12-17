@@ -28,12 +28,20 @@
         <input asp-for="InStock" class="form-control" placeholder="Enter available quantity">
         <span asp-validation-for="InStock" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
         <label asp-for="Categories"></label>
         <div>
-            @Html.DropDownListFor(x => Model.CategoryName, new SelectList(Model.Categories, "Value", "Text"), htmlAttributes: new { @class = "form-control"})
+            @Html.DropDownListFor(x => Model.CategoryName, new SelectList(Model.Categories, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
         </div>
-    </div>
+    </div>*@
+    @*<div class="form-group">
+            <label asp-for="CategoryName">Category</label>
+            <select asp-for="CategoryName" class="form-control" asp-items="Model.Categories">
+                <option value="">Chose category</option>
+            </select>
+            <span asp-validation-for="CategoryName" class="text-danger"></span>
+        </div>*@
+
     <p class="text-danger align-content-lg-center display-1">TODO: Upload pictures</p>
 
     <br />
