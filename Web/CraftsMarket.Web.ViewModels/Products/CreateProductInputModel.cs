@@ -9,21 +9,21 @@
 
     public class CreateProductInputModel : IMapTo<Product>
     {
-        //[Required]
-        //[MinLength(3)]
-        //[MaxLength(50)]
+        [Required]
+        [MinLength(3)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
-        //[Required]
-        //[Range(0.01, 100000)]
+        [Required]
+        [Range(0.01, 100000)]
         public decimal Price { get; set; }
 
-        //[Range(0, 1000)]
+        [Range(0, 1000)]
         [Display(Name = "Quantity")]
         public int InStock { get; set; }
 
-        //[Required]
-        //[MinLength(20)]
+        [Required]
+        [MinLength(20)]
         public string Description { get; set; }
 
         public string UserId { get; set; }

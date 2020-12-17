@@ -9,6 +9,11 @@
 
     public class ProductViewModel : IMapTo<Product>, IMapFrom<Product>
     {
+        public ProductViewModel()
+        {
+            this.ImageUrls = new HashSet<string>();
+        }
+
         public int Id { get; set; }
 
         [Required]

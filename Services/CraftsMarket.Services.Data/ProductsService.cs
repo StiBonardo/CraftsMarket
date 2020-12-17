@@ -39,47 +39,50 @@ namespace CraftsMarket.Services.Data
                 .ToList();
         }
 
-        public IEnumerable<ProductViewModel> AllForUser(string userId)
+        public IEnumerable<ProductViewModel> AllForUser(string username)
         {
             return this.productsRepository
                 .AllAsNoTracking()
-                .Where(x => x.User.Id == userId)
+                .Where(x => x.User.UserName == username)
                 .To<ProductViewModel>()
                 .ToList();
         }
 
         public IEnumerable<ProductViewModel> GetRecentProducts(int count = 12)
         {
-            var allCategories = this.categoriesRepository.AllAsNoTracking().ToList();
-            var allCategoriesCount = allCategories.Count;
-            var categoriesToShow = new List<Category>();
-            var random = new Random();
+            var categories = this.categoriesRepository
+                .AllAsNoTracking()
+                .Where(x => x.Products.Any())
+                .OrderByDescending(x => x.Products.Count())
+                .Take(count)
+                .ToList();
 
-            if (allCategoriesCount == count)
-            {
-                categoriesToShow = allCategories;
-            }
-            else
-            {
-                for (int i = 0; i < count; i++)
-                {
-                    categoriesToShow.Add(allCategories[random.Next(0, allCategoriesCount)]);
-                }
-            }
+            var allProductsCount = this.productsRepository.All().Count();
+            count = count <= allProductsCount ? count : allProductsCount;
 
             var recentProducts = new List<ProductViewModel>();
-            foreach (var category in categoriesToShow)
+            foreach (var category in categories)
             {
                 var product = this.productsRepository
                     .AllAsNoTracking()
+                    .OrderByDescending(x => x.CreatedOn)
                     .To<ProductViewModel>()
                     .ToList()
-                    .FirstOrDefault(x => x.CategoryName == category.Name && !recentProducts.Contains(x));
+                    .First(x => x.CategoryName == category.Name);
 
-                if (product != null)
-                {
-                    recentProducts.Add(product);
-                }
+                recentProducts.Add(product);
+            }
+
+            var random = new Random();
+            while (recentProducts.Count < count)
+            {
+                var product = this.productsRepository
+                    .AllAsNoTracking()
+                    .OrderByDescending(x => x.CreatedOn)
+                    .To<ProductViewModel>()
+                    .ToList()
+                    .First(x => recentProducts.All(y => y.Name != x.Name));
+                recentProducts.Add(product);
             }
 
             return recentProducts;

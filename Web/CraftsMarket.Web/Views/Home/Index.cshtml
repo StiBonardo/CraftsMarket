@@ -6,28 +6,37 @@
 
 <div class="text-center">
     <h1 class="display-3">Welcome to @GlobalConstants.SystemName!</h1>
-    <div class="display-4">
+    <div>
         @if (!User.Identity.IsAuthenticated)
         {
-            <p>Here you can find</p>
-            <p>
-                <span class="display-3 text-danger">@Model.ProductsCount</span>
-                <a class="nav-item" style="border: none; text-decoration: none !important;" asp-controller="Products" asp-action="All">Products</a> in
-            </p>
-            <p>
-                <span class="display-3 text-danger">@Model.CategoriesCount</span>
-                <a class="nav-item" style="border: none; text-decoration: none !important;" asp-controller="Categories" asp-action="All">Categories</a>
-            </p>
+            <div class="display-4">
+                <p>Here you can find</p>
+                <p>
+                    <span class="display-3 text-danger">@Model.ProductsCount</span>
+                    <a class="nav-item" style="border: none; text-decoration: none !important;" asp-controller="Products" asp-action="All">Products</a> in
+                </p>
+                <p>
+                    <span class="display-3 text-danger">@Model.CategoriesCount</span>
+                    <a class="nav-item" style="border: none; text-decoration: none !important;" asp-controller="Categories" asp-action="All">Categories</a>
+                </p>
+            </div>
         }
         else
         {
             <h1>Hello, @User.Identity.Name! You can see all Your products <a asp-controller="Products" asp-action="All">here!</a></h1>
             <br />
-            <h3>Recently added products:</h3>
-            @foreach (var product in @Model.TopRecentProducts)
-            {
-                <partial name="_ProductPartial" model="@product"/>
-            }
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                        <div class="card-deck">
+                            @foreach (var product in @Model.TopRecentProducts)
+                            {
+                                <partial name="_ProductPartial" , model="@product" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
     </div>
 </div>

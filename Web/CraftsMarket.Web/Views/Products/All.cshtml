@@ -3,25 +3,42 @@
     this.ViewData["Title"] = "Products";
 }
 
-<div class="text-center">
-    <h1 class="display-3">@this.ViewData["Title"]</h1>
-    <div class="display-4">
+<div class="text-center" style="margin: 100px">
+    <div>
+        <div type="button" class="btn btn-primary col-md-8 align-content-center" asp-controller="Products" asp-action="Add">Add new product</div>
+        <br/>
         @if (User.Identity.IsAuthenticated)
         {
+            <br/>
             <h1>You have <span class="text-danger">@Model.MyProducts.Count()</span> active products:</h1>
-            @foreach (var product in @Model.MyProducts)
-            {
-                <partial name="_ProductPartial" , model="@Model.MyProducts" />
-            }
+            <br/>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                        <div class="card-deck">
+                            @foreach (var product in @Model.MyProducts)
+                            {
+                                <partial name="_ProductPartial" , model="@product" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
-        <br />
-        <a type="button" class="btn btn-primary" asp-controller="Products" asp-action="Add">Add new product</a>
-        <br />
+        <br/>
         <h1>Most recent products:</h1>
-
-        @foreach (var product in @Model.MyProducts)
-        {
-            <partial name="_ProductPartial" , model="@Model.AllProducts" />
-        }
+        <br />
+        <div class="container"> 
+            <div class="row">
+                <div class="col-12 col-sm-12 col-lg-12">
+                    <div class="card-deck">
+                        @foreach (var product in @Model.AllProducts)
+                        {
+                            <partial name="_ProductPartial" , model="@product" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

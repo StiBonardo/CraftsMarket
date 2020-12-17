@@ -6,7 +6,7 @@
     <div class="card-body">
         <span class="badge badge-success">@Model.CategoryName</span>
         <h4 class="card-title mt-2">Price: @Model.Price lev.</h4>
-        <p class="card-text">@Model.Description.Substring(0, 200) </p>
+        <p class="card-text">@Model.Description.Substring(0, 100) </p>
     </div>
     <div class="card-footer">
         <a asp-controller="Products" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-primary">Read More</a>

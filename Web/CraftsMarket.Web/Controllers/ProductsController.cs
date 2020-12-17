@@ -31,13 +31,12 @@ namespace CraftsMarket.Web.Controllers
             this.categoriesService = categoriesService;
         }
 
-        public IActionResult Index(int productId)
+        public IActionResult Index(int id)
         {
-            var viewModel = this.productsService.GetById(productId);
+            var viewModel = this.productsService.GetById(id);
             return this.View(viewModel);
         }
 
-        [Route("/Products")]
         public IActionResult All()
         {
             var productsViewModel = new ListOfProductsViewModel();
